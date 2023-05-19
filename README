@@ -1,0 +1,49 @@
+============================================================== Tema1 - LANPARTY ==================================================================================
+========================================================= Sirbu Mihai-Alexandru 312AA ============================================================================
+Codul dat este o implementare a unui program care gestionează un turneu între echipe de jucători. Programul folosește diferite structuri de date precum liste, cozi și stive pentru a stoca și manipula informațiile despre echipe și jucători.
+
+Structurile de date utilizate în program sunt:
+
+'Player' reprezintă informațiile despre un jucător, inclusiv numele și punctele obținute.
+'NodJucator' este un nod într-o listă simplu înlănțuită de jucători.
+'Team' reprezintă o echipă și include numele echipei, numărul de jucători, scorul echipei și o referință către primul jucător din echipă.
+'TeamNode' este un nod într-o listă simplu înlănțuită de echipe.
+'Element' reprezintă un nod într-o coadă și conține informații despre două echipe și scorurile lor.
+'ElementStiva' reprezintă un nod într-o stivă și conține numele echipei și punctele echipei.
+'Coada' este o coadă utilizată pentru a stoca rundele turneului.
+'NodeBST' este un nod într-un arbore binar de căutare și conține informații despre scorul și numele echipei.
+'AVL' este un nod într-un arbore AVL utilizat pentru a stoca informații despre echipe în ordine crescătoare a scorului.
+
+Programul conține o serie de funcții pentru gestionarea unui turneu sportiv între echipe. Iată un rezumat al acestor funcții:
+
+Funcția 'maxim' returnează valoarea maximă dintre două numere.
+Funcția 'isEmpty' verifică dacă o coadă este goală.
+Funcția 'isEmptyStack' verifică dacă o stivă este goală.
+Funcția 'copieJucator' copiază informațiile despre un jucător într-un alt jucător.
+Funcția 'stergeListaJucatori' eliberează memoria ocupată de lista de jucători.
+Funcția 'insereazaJucatorInceput' adaugă un jucător la începutul unei liste de jucători.
+Funcțiile 'pop' și 'push' realizează operațiile specifice stivei, respectiv eliminarea unui element din vârful stivei și adăugarea unui element la începutul stivei.
+Funcția 'creeazaCoada' creează o coadă nouă și returnează un pointer către aceasta.
+Funcția 'deQueue' elimină primul element din coadă.
+Funcția 'creeazaStiva' creează două stive, una pentru echipele câștigătoare și alta pentru echipele învinsătoare, pe baza unei cozi date.
+Funcția 'afiseazaValoriStiva' afișează valorile stocate într-o stivă într-un fișier.
+Funcția 'enQueue' adaugă un element la sfârșitul unei cozi, cu informații despre două echipe și punctele obținute de fiecare echipă.
+Funcția 'creareEchipa' inițializează o structură de tip Team cu valorile implicite.
+Funcția 'creareNodEchipa' creează un nod nou pentru o listă de echipe.
+Funcția 'strcpyEchipa' copiază informațiile despre o echipă într-o altă echipă.
+Funcția 'afiseazaNumeEchipa' afișează numele echipelor dintr-o listă într-un fișier.
+Funcția 'citesteEchipa' citește informațiile despre o echipă dintr-un fișier.
+Funcția 'insereazaNodEchipaInceput' adaugă un nod de echipă la începutul unei liste de echipe.
+Funcția 'gasireNumarEchipe' găsește cel mai mare număr putere de 2 mai mic sau egal decât un număr dat.
+Funcția 'gasireEchipaNecalificata' găsește echipa cu scorul cel mai mic dintr-o listă de echipe.
+Funcția 'stergeEchipa' elimină un nod de echipă dintr-o listă de echipe.
+
+Programul realizează următoarele acțiuni principale:
+
+Citeste informațiile despre echipe și jucători dintr-un fișier.
+Crează o listă de echipe folosind nodurile TeamNode.
+Cauta și sterge echipa cu cel mai mic scor din listă.
+Creează runde de joc folosind echipele rămase în listă și le stochează într-o coadă.
+Creează runde suplimentare dintr-o stivă de echipe și le adaugă în coadă.
+Afișează rezultatele rundelor într-un fișier.
+Rezumatul codului dat este o implementare a unui program care organizează un turneu între echipe și afișează rezultatele acestuia.
