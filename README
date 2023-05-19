@@ -1,5 +1,5 @@
-==================================================== Tema1 - LANPARTY ========================================================================
-=============================================== Sirbu Mihai-Alexandru 312AA ==================================================================
+=============================================== Tema1 - LANPARTY ===================================================================
+========================================== Sirbu Mihai-Alexandru 312AA =============================================================
 Codul dat este o implementare a unui program care gestionează un turneu între echipe de jucători. Programul folosește diferite structuri de date precum liste, cozi și stive pentru a stoca și manipula informațiile despre echipe și jucători.
 
 Structurile de date utilizate în program sunt:
