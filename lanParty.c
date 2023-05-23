@@ -6,7 +6,7 @@ int main(int num_arg, char *arg_strings[]){
     NodeBST *Top8 = NULL;
     AVL *AVLTop8 = NULL;
     Team Echipa;
-    TeamNode *primaEchipa = NULL;
+    TeamNode *primaEchipa = NULL, *auxTeam = NULL;
     int numarEchipe, Cerinta[6];
     file = fopen(arg_strings[1], "rt");
     fscanf(file,"%d %d %d %d %d", &Cerinta[1], &Cerinta[2], &Cerinta[3], &Cerinta[4], &Cerinta[5]);
@@ -77,5 +77,12 @@ int main(int num_arg, char *arg_strings[]){
         fprintf(file,"%s", AVLTop8->left->left->numeEchipa);
         fclose(file);
     }
+    while(primaEchipa){
+        auxTeam = primaEchipa;
+        primaEchipa = primaEchipa->nextTeam;
+        stergeListaJucatori(&auxTeam->Echipa.firstPlayer);
+        free(auxTeam);
+    }
+    primaEchipa = NULL;
     return 0;
 }
