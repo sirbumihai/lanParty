@@ -166,7 +166,7 @@ int gasireNumarEchipe(unsigned int numar){
 TeamNode *gasireEchipaNecalificata(TeamNode *primaEchipa) {
     float aux = primaEchipa->Echipa.score;
     TeamNode *echipaEliminata = primaEchipa;
-    while(primaEchipa && primaEchipa->nextTeam){
+    while(primaEchipa->nextTeam){
         if(aux > primaEchipa->nextTeam->Echipa.score){
             aux = primaEchipa->nextTeam->Echipa.score; 
             echipaEliminata = primaEchipa;
@@ -186,25 +186,6 @@ void stergeEchipa(TeamNode **nodSters,TeamNode **primulSters){
         (*primulSters) = sterge->nextTeam;
         stergeListaJucatori(&sterge->Echipa.firstPlayer);
         free(sterge);
-    }
-}
-void stergeEchipaDupaNume(TeamNode **primaEchipa, char *numeEchipa){
-    TeamNode *nodSters, *echipaCurenta = (*primaEchipa);
-    if(strcmp((*primaEchipa)->Echipa.numeEchipa, numeEchipa) == 0){
-        nodSters = (*primaEchipa);
-        (*primaEchipa) = (*primaEchipa)->nextTeam;
-        stergeListaJucatori(&nodSters->Echipa.firstPlayer);
-        free(nodSters);
-        return;
-    }
-    while(echipaCurenta && echipaCurenta->nextTeam){
-        if(strcmp(echipaCurenta->nextTeam->Echipa.numeEchipa, numeEchipa) == 0){
-            nodSters = echipaCurenta->nextTeam;
-            echipaCurenta->nextTeam = echipaCurenta->nextTeam->nextTeam;
-            stergeListaJucatori(&nodSters->Echipa.firstPlayer);
-            free(nodSters);
-        }
-        echipaCurenta = echipaCurenta->nextTeam;
     }
 }
 Queue *creeazaRunde(TeamNode *listaEchipa){
@@ -236,7 +217,13 @@ void afiseazaListaRunda(Queue *Coada, char *numeFisier, int numarRunde){
 }
 void stergePierzatori(TeamNode **primaEchipa, StackNode **Stiva){
     while(!isEmptyStack(*Stiva)){
-        stergeEchipaDupaNume(primaEchipa, (*Stiva)->numeEchipa);
+        TeamNode *nodSters;
+        if(strcmp((*primaEchipa)->Echipa.numeEchipa, (*Stiva)->numeEchipa) == 0){
+            nodSters = (*primaEchipa);
+            (*primaEchipa) = (*primaEchipa)->nextTeam;
+            stergeListaJucatori(&nodSters->Echipa.firstPlayer);
+            free(nodSters);
+        }
         pop(Stiva);
     }
 }
